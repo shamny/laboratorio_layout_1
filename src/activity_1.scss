@@ -1,0 +1,84 @@
+$basecolorgreen: darkgreen;
+$basecolorred: darkred;
+$basecolorblue: darkblue;
+$basetextcolor: darkgrey;
+
+$i: 1;
+$porcentbase: 5%;
+
+@mixin ligthen-color($basecolor,$porcent,$basetext) {
+    background-color: lighten($basecolor, $porcent);
+    color:darken($basetext, $porcent);  
+}
+
+@mixin darken-color($basecolor,$porcent,$basetext) {
+    background-color: darken($basecolor, $porcent);
+    color:lighten($basetext, $porcent);  
+}
+
+.grid-container-1{
+    display:grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(3,60px);
+    justify-content: space-evenly;
+    justify-items: stretch;
+    align-items: stretch;
+    gap:0.3rem;
+}
+
+.box{
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-weight: bold;
+}
+
+.base-color{
+    grid-column-start: 5;
+    grid-column-end:7;
+    color:$basetextcolor;
+    &.green{
+        background-color: $basecolorgreen;
+    } 
+    
+    &.red{
+        background-color: $basecolorred;
+    }
+        
+    &.blue{
+        background-color: $basecolorblue;
+    } 
+}
+
+@while $i < 5{
+    // Base verde
+    .green.lighten-#{$i}{
+        @include ligthen-color($basecolorgreen,$porcentbase,$basetextcolor); 
+    }
+
+    .green.darken-#{$i}{
+        @include darken-color($basecolorgreen,$porcentbase,$basetextcolor);
+    }
+    
+    //Base roja
+    .red.lighten-#{$i}{
+        @include ligthen-color($basecolorred,$porcentbase,$basetextcolor);   
+    }
+    
+    .red.darken-#{$i}{
+        @include darken-color($basecolorred,$porcentbase,$basetextcolor);
+    }
+
+    //Base azul
+    .blue.lighten-#{$i}{
+        @include ligthen-color($basecolorblue,$porcentbase,$basetextcolor);  
+    }
+        
+    .blue.darken-#{$i}{
+        @include darken-color($basecolorblue,$porcentbase,$basetextcolor);
+    }
+
+$i: $i+1;
+$porcentbase: $porcentbase + 5%;
+}

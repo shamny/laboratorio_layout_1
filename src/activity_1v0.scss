@@ -1,0 +1,134 @@
+$basecolorgreen: darkgreen;
+$basecolorred: darkred;
+$basecolorblue: darkblue;
+
+$basetextcolor: darkgrey;
+
+$i: 1;
+$porcentbase: 5%;
+
+.grid-container-1{
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3,60px);
+    gap:0.3rem;
+
+    @media screen and(max-width:700px){
+        grid-template-columns: repeat(3,1fr);;
+        grid-template-rows: 100vw;
+    }
+}
+
+.base-color-blue{
+    display: grid;
+    grid-template-columns: repeat(4,1fr) 2fr repeat(4,1fr);
+    grid-template-rows: auto;
+    justify-content: space-evenly;
+    justify-items: stretch;
+    align-items: stretch;
+    gap: 0.3rem;
+
+    @media screen and(max-width:700px){
+        grid-template-columns: auto;
+        grid-template-rows: repeat(4,12%) 24% repeat(4,12%);
+        justify-content: stretch;
+    }
+}
+
+.base-color-red{
+    display: grid;
+    grid-template-columns: repeat(4,1fr) 2fr repeat(4,1fr);
+    grid-template-rows:auto;
+    justify-content: space-evenly;
+    justify-items: stretch;
+    align-items: stretch;
+    gap: 0.3rem;
+
+    @media screen and(max-width:700px){
+        grid-template-columns: auto;
+        grid-template-rows: repeat(4,12%) 24% repeat(4,12%);
+        justify-content: stretch;
+    }
+}
+
+.base-color-green{
+    display: grid;
+    grid-template-columns: repeat(4,1fr) 2fr repeat(4,1fr);
+    grid-template-rows:auto;
+    justify-content: space-evenly;
+    justify-items: stretch;
+    align-items: stretch;
+    gap: 0.3rem;
+
+    @media screen and(max-width:700px){
+        grid-template-columns: auto;
+        grid-template-rows: repeat(4,12%) 24% repeat(4,12%);
+        justify-content: stretch;
+    } 
+}
+
+
+.box{
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-weight: bold;
+    .base-color-green > &.base-color{
+        background-color: $basecolorgreen;
+        color:$basetextcolor;
+    }
+
+    .base-color-red > &.base-color{
+        background-color: $basecolorred;
+        color:$basetextcolor;
+    }
+    
+    .base-color-blue > &.base-color{
+        background-color: $basecolorblue;
+        color:$basetextcolor;
+    } 
+
+
+    @while $i < 5{
+    // Base verde
+        .base-color-green > &.lighten-#{$i}{
+            background-color: lighten($basecolorgreen, $porcentbase);
+            color:darken($basetextcolor, $porcentbase);  
+        }
+
+        .base-color-green > &.darken-#{$i}{
+            background-color: darken($basecolorgreen, $porcentbase);
+            color:lighten($basetextcolor, $porcentbase);  
+        }
+    
+    //Base roja
+        .base-color-red > &.lighten-#{$i}{
+            background-color: lighten($basecolorred, $porcentbase);
+            color:darken($basetextcolor, $porcentbase);  
+        }
+    
+        .base-color-red > &.darken-#{$i}{
+            background-color: darken($basecolorred, $porcentbase);
+            color:lighten($basetextcolor, $porcentbase);  
+        }
+
+    //Base azul
+        .base-color-blue > &.lighten-#{$i}{
+            background-color: lighten($basecolorblue, $porcentbase);
+            color:darken($basetextcolor, $porcentbase);  
+        }
+        
+        .base-color-blue > &.darken-#{$i}{
+            background-color: darken($basecolorblue, $porcentbase);
+            color:lighten($basetextcolor, $porcentbase);  
+        }
+
+    $i: $i+1;
+    $porcentbase: $porcentbase + 5%;
+    }
+
+}
+
+
+

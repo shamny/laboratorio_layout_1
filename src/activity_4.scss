@@ -1,0 +1,80 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: lightgrey;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+img{
+    width: 352px;
+}
+
+.button{
+    display: flex;
+    flex:1;
+    justify-content: center;
+    padding: 12px;
+    text-decoration: none;
+    color:white;
+}
+
+.my-container{
+    display:flex;
+    flex:1;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+    margin: 1rem;
+    
+}
+
+.card{
+    display: grid;
+    width: 22rem;
+    background-color: white;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header header header header"
+    "title title title ."
+    "main main main main"
+    ". signed signed signed"
+    "footer footer footer footer";
+}
+
+.area{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.area-cabecera{
+    grid-area: header;
+    margin:0;
+    justify-self: stretch;
+}
+
+.area-titulo{
+    grid-area: title;
+    font-size: 20px;
+}
+
+.area-texto{
+    grid-area:main;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.area-firma{
+    grid-area:signed;
+    justify-self: self-end;
+    font-size: 12px;
+}
+
+.area-pie{
+    grid-area:footer;
+    height: 50px;
+    background-color: darkolivegreen;
+    justify-self: stretch;
+    align-self: stretch;
+}

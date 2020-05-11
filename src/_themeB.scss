@@ -1,0 +1,9 @@
+$boxbasecolor:blue;
+$boximportantcolor:darkblue;
+$boxwarningcolor: aqua;
+$textoprincipal:Times New Roman;
+$textosecundario:Georgia;
+
+@mixin caja-sombra{
+    box-shadow: 10px 10px 10px 5px grey;
+ }
